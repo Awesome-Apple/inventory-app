@@ -1,7 +1,13 @@
-const { db } = require("./server/models");
+const { db, Item } = require("./server/models/Item");
 const app = require("./server/app");
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
+
+app.get('/', async (req, res) => {
+  res.json(await Item.findAll());
+})
+
+
 
 const init = async () => {
   try {
