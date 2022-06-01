@@ -21,13 +21,20 @@ router.get("/:id", async (req, res) => {
 
 
 // Update 
-
 router.put('/:id',async (req, res) => {
   await Item.update(req.body, {
       where: {id: req.params.id}
   });
-  res.send('Updated rating!');
+  res.send('Updated Items!');
 });
+
+ // show can delete
+ router.delete('/:id', async(req,res)=>{
+  await Item.destroy({
+      where: {id: req.params.id}
+  });
+  res.send('Deleted!')
+})
 
 
 module.exports = router;

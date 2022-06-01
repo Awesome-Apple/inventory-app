@@ -10,6 +10,7 @@ export const App = () => {
 
 	const [items, setItems] = useState([]);
 	const [singleItem, setSingleItem] = useState(0);
+	
 
 	async function fetchItems(){
 		try {
