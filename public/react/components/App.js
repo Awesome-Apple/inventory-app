@@ -5,11 +5,14 @@ import { Item } from './Item';
 // import and prepend the api url to any fetch calls
 import apiURL from '../api';
 import { SingleItem } from './SingleItem';
+import { UpdateForm } from './UpdateForm';
 
 export const App = () => {
 
 	const [items, setItems] = useState([]);
 	const [singleItem, setSingleItem] = useState(0);
+	const [updatingItem, setUpdatingItem] = useState(false);
+	const [deletingItem, setDeletingItem] = useState(false);
 
 	async function fetchItems(){
 		try {
@@ -24,11 +27,11 @@ export const App = () => {
 
 	useEffect(() => {
 		fetchItems();
-	}, [singleItem]);
+	}, [singleItem, updatingItem, deletingItem]);
 
 	return (
 		<main>	
-      	{singleItem ? <SingleItem singleItem={singleItem} setSingleItem={setSingleItem}/> : <>
+      	{updatingItem ? <UpdateForm setUpdatingItem={setUpdatingItem} updatingItem={updatingItem} /> : singleItem ? <SingleItem singleItem={singleItem} setSingleItem={setSingleItem} setUpdatingItem={setUpdatingItem}/> : <>
 		  <h1>Items Store</h1>
 			<h2>All things 🔥</h2> <ItemsList items={items} setSingleItem={setSingleItem}/>
 			</>}
