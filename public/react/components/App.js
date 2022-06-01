@@ -14,6 +14,7 @@ export const App = () => {
 	const [updatingItem, setUpdatingItem] = useState(false);
 	const [deletingItem, setDeletingItem] = useState(false);
 
+
 	async function fetchItems(){
 		try {
 			const response = await fetch(`${apiURL}/items`);      
