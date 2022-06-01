@@ -19,4 +19,15 @@ router.get("/:id", async (req, res) => {
   res.json(await Item.findByPk(req.params.id))
 });
 
+
+// Update 
+
+router.put('/:id',async (req, res) => {
+  await Item.update(req.body, {
+      where: {id: req.params.id}
+  });
+  res.send('Updated rating!');
+});
+
+
 module.exports = router;
