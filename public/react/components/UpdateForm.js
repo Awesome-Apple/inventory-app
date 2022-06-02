@@ -9,16 +9,9 @@ export const UpdateForm = ({setUpdatingItem, updatingItem, usingId, setSingleIte
     const [category, setCategory] = useState('');
     const [image, setImage] = useState('');
 
-     /* const handleSubmit = async (ev) => {
-        ev.preventDefault();
-        const data = {title, price, description, category, image};
-        await fetch(`${apiURL}/items/${usingId.id}`, {method: 'PUT', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
-        setUpdatingItem(false);
-    }; */
 
     const handleSubmit = async (ev) => {
         ev.preventDefault();
-        console.log('******** This is the ID were using:', usingId);
         const data = {id, title, price, description, category, image};
         const request = {
         method: 'PUT',
@@ -29,13 +22,7 @@ export const UpdateForm = ({setUpdatingItem, updatingItem, usingId, setSingleIte
         .then(response => response.json())
         setSingleItem(0);
         setUpdatingItem(false);
-    }
-
-   /* const updateHandler = async () => {
-        const response = await fetch(`${apiURL}/items/${singleItem.id}`, {method: 'UPDATE'});
-        const itemToUpdate = await response.json();
-        setSingleItem(0);
-    } */
+    };
 
     return <>
         <h2>Update this Item</h2>
