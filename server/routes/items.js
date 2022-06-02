@@ -25,8 +25,6 @@ router.post('/',async (req, res) => {
   res.json('Item created!');
 });
 
-
-
 // Update 
 router.put('/:id',async (req, res) => {
   console.log('From us', req.body, 'this is req.params.id', req.params.id);

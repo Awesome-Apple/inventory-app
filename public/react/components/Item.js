@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import apiURL from '../api';
 
 export const Item = ({item, setSingleItem}) => {
-
   const fetchItem = async () => {
     const response = await fetch(`${apiURL}/items/${item.id}`);
     const itemData = await response.json();
