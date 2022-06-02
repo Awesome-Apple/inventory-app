@@ -43,7 +43,7 @@ router.put('/:id',async (req, res) => {
   await Item.destroy({
       where: {id: req.params.id}
   });
-  res.send('Deleted!')
+  res.json('Deleted!')
 })
 
 
