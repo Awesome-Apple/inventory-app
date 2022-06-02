@@ -19,6 +19,15 @@ router.get("/:id", async (req, res) => {
   res.json(await Item.findByPk(req.params.id))
 });
 
+// Post
+router.post('/:id',async (req, res) => {
+  await Item.create(req.body, {
+      where: {id: req.params.id}
+  });
+  res.send('Item created!');
+});
+
+
 
 // Update 
 router.put('/:id',async (req, res) => {
@@ -29,7 +38,7 @@ router.put('/:id',async (req, res) => {
   res.send('Updated Items!');
 });
 
- // show can delete
+ //can delete
  router.delete('/:id', async(req,res)=>{
   await Item.destroy({
       where: {id: req.params.id}
