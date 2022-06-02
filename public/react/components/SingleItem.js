@@ -4,6 +4,15 @@ import apiURL from '../api';
 
 export const SingleItem = ({ singleItem, setSingleItem, setUpdatingItem, setUsingId}) => {
 
+    const deleteHandler = async () => {
+        const response = await fetch(`${apiURL}/items/${singleItem.id}`, {method: 'DELETE'});
+        const itemData = await response.json();
+    } 
+
+    const deleteButton = (e) => {
+        deleteHandler();
+        setSingleItem(0);
+    }
 
     return <>
     <h4>{singleItem.category}</h4>
@@ -15,6 +24,7 @@ export const SingleItem = ({ singleItem, setSingleItem, setUpdatingItem, setUsin
         setUpdatingItem(true);
         setUsingId(singleItem.id);
         }}>Update Item</button>
+    <button onClick={deleteButton}>Delete Item</button>
     <button onClick={() => {setSingleItem(0)}}>Back to All</button>
     </>
 }

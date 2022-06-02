@@ -7,6 +7,9 @@ app.get('/', async (req, res) => {
   res.json(await Item.findAll());
 })
 
+app.delete("/", async (req, res) => {
+  res.send(await Item.destroy());
+})
 
 
 const init = async () => {

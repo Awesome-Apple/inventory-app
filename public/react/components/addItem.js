@@ -12,9 +12,9 @@ export const AddItem = ({setAddingItem, addingItem}) => {
     const handleSubmit = async (ev) => {
         ev.preventDefault();
         const data = {title, price, description, category, image};
-        const res = await fetch(`${apiURL}/`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
-          const itemInfo = await res.json();
-          setAddingItem(false);
+        const res = await fetch(`${apiURL}/items`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
+        const itemInfo = await res.json();
+        setAddingItem(false);
     };
 
 
@@ -28,5 +28,6 @@ export const AddItem = ({setAddingItem, addingItem}) => {
             <input type='text' placeholder='Image' value={image} onChange={(ev) => { setImage(ev.target.value) }}/>
             <button type='submit'>Create Item</button>
         </form>
+        <button onClick={() => {setAddingItem(false)}}>Cancel</button>
     </>
 }
