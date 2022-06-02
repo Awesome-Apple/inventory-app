@@ -20,10 +20,8 @@ router.get("/:id", async (req, res) => {
 });
 
 // Post
-router.post('/:id',async (req, res) => {
-  await Item.create(req.body, {
-      where: {id: req.params.id}
-  });
+router.post('/',async (req, res) => {
+  await Item.create(req.body)
   res.json('Item created!');
 });
 
