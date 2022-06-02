@@ -7,7 +7,7 @@ router.get("/", async (req, res, next) => {
   try {
     const items = await Item.findAll();
 
-    res.send(items);
+    res.json(items);
   } catch (error) {
     next(error);
   }
@@ -24,7 +24,7 @@ router.post('/:id',async (req, res) => {
   await Item.create(req.body, {
       where: {id: req.params.id}
   });
-  res.send('Item created!');
+  res.json('Item created!');
 });
 
 
