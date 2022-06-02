@@ -12,7 +12,6 @@ export const App = () => {
 	const [items, setItems] = useState([]);
 	const [singleItem, setSingleItem] = useState(0);
 	const [updatingItem, setUpdatingItem] = useState(0);
-	const [deletingItem, setDeletingItem] = useState(false);
 	const [usingId, setUsingId] = useState(0);
 
 
@@ -29,7 +28,7 @@ export const App = () => {
 
 	useEffect(() => {
 		fetchItems();
-	}, [singleItem, updatingItem, deletingItem]);
+	}, [singleItem, updatingItem]);
 
 	return (
 		<main>	
