@@ -28,6 +28,7 @@ export const UpdateForm = ({setUpdatingItem, updatingItem, usingId, setSingleIte
         fetch(`${apiURL}/items/${usingId}`, request)
         .then(response => response.json())
         setSingleItem(0);
+        setUpdatingItem(false);
     }
 
    /* const updateHandler = async () => {
