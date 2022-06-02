@@ -6,7 +6,7 @@ const { Item } = require("../models/Item");
 router.get("/", async (req, res, next) => {
   try {
     const items = await Item.findAll();
-    console.log(items)
+
     res.send(items);
   } catch (error) {
     next(error);
@@ -22,6 +22,7 @@ router.get("/:id", async (req, res) => {
 
 // Update 
 router.put('/:id',async (req, res) => {
+  console.log('From us', req.body, 'this is req.params.id', req.params.id);
   await Item.update(req.body, {
       where: {id: req.params.id}
   });

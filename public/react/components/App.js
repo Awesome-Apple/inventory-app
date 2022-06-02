@@ -11,8 +11,9 @@ export const App = () => {
 
 	const [items, setItems] = useState([]);
 	const [singleItem, setSingleItem] = useState(0);
-	const [updatingItem, setUpdatingItem] = useState(false);
+	const [updatingItem, setUpdatingItem] = useState(0);
 	const [deletingItem, setDeletingItem] = useState(false);
+	const [usingId, setUsingId] = useState(0);
 
 
 	async function fetchItems(){
@@ -32,7 +33,7 @@ export const App = () => {
 
 	return (
 		<main>	
-      	{updatingItem ? <UpdateForm setUpdatingItem={setUpdatingItem} updatingItem={updatingItem} /> : singleItem ? <SingleItem singleItem={singleItem} setSingleItem={setSingleItem} setUpdatingItem={setUpdatingItem}/> : <>
+      	{updatingItem ? <UpdateForm setUpdatingItem={setUpdatingItem} updatingItem={updatingItem} usingId={usingId} setSingleItem={setSingleItem} /> : singleItem ? <SingleItem singleItem={singleItem} setSingleItem={setSingleItem} setUpdatingItem={setUpdatingItem} setUsingId={setUsingId} /> : <>
 		  <h1>Items Store</h1>
 			<h2>All things 🔥</h2> <ItemsList items={items} setSingleItem={setSingleItem}/>
 			</>}

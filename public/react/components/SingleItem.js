@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import apiURL from '../api';
 
 
-export const SingleItem = ({ singleItem, setSingleItem }) => {
+export const SingleItem = ({ singleItem, setSingleItem, setUpdatingItem, setUsingId}) => {
+
+
     return <>
     <h4>{singleItem.category}</h4>
     <h1>{singleItem.title}</h1>
     <h3>{singleItem.price}</h3>
     <img src={singleItem.image} alt={singleItem.title} style={{maxWidth: 350, maxHeight: 350}} />
     <h4>{singleItem.description}</h4>
+    <button onClick={() => {
+        setUpdatingItem(true);
+        setUsingId(singleItem.id);
+        }}>Update Item</button>
     <button onClick={() => {setSingleItem(0)}}>Back to All</button>
     </>
 }

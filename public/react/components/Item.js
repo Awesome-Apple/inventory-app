@@ -11,7 +11,7 @@ export const Item = ({item, setSingleItem}) => {
 
   return <>
     <h3 onClick={fetchItem} >{item.title}</h3>
-    <img src={item.image} alt={item.name} style={{ maxWidth: 200, maxHeight: 200}}/>
+    <img src={item.image} alt={item.name} style={{ maxWidth: 200, maxHeight: 200}} onClick={fetchItem}/>
   </>
 } 
 	
