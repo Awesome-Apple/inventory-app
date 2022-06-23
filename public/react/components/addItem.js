@@ -13,8 +13,8 @@ export const AddItem = ({setAddingItem, addingItem}) => {
         ev.preventDefault();
         const data = {title, price, description, category, image};
         const res = await fetch(`${apiURL}/items`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
-        const itemInfo = await res.json();
-        setAddingItem(false);
+        const itemInfo = await res.json()
+        .then(setAddingItem(false));
     };
 
 
